@@ -138,11 +138,12 @@ export default class Index extends Component {
 
   render() {
     const { userId, userName, inviteCode } = this.state;
+    const hasInviteCode = Taro.getStorageSync('inviteCode');
     return (
       <View className='index'>
         <View className='index_userInfo'>
         {
-          !Taro.getStorageSync('inviteCode') && (
+          !hasInviteCode && (
             <View className='userInfo_item'>
               <Text className='title'>邀请码</Text>
               <Input
@@ -183,7 +184,7 @@ export default class Index extends Component {
 
           <Button
             type='primary'
-            disabled={!userId || !userName || !inviteCode}
+            disabled={!userId || !userName || !hasInviteCode}
             onClick={this.onComfirm}
             value={userId}
             style='margin-bottom: 20px'
