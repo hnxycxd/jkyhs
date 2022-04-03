@@ -184,7 +184,7 @@ export default class Index extends Component {
 
           <Button
             type='primary'
-            disabled={!userId || !userName || !hasInviteCode}
+            disabled={!userId || !userName}
             onClick={this.onComfirm}
             value={userId}
             style='margin-bottom: 20px'
